@@ -7,6 +7,7 @@ interface IPayload{
         id: number;
         nome: string;
         email: string;
+        active: number;
         login: string;
     }
 }
@@ -25,12 +26,14 @@ const IsLogged = (request: Request, response: Response, next: NextFunction) => {
 
         const {user} = decoded as IPayload;
 
+        if(user.active == 0) throw new Error("Usuário inativo");
+
         request.user = user;
 
         return next();
          
-    } catch (error) {
-        return response.status(401).json({message: 'Não autenticado '});
+    } catch (err) {
+        return response.status(401).json({message: (err as Error).message});
     }
 }
 

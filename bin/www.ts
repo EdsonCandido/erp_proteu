@@ -93,5 +93,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  logger.info('Listening on ' + bind);
+  logger.info('🚀 Server ready at: ' + bind);
 }
