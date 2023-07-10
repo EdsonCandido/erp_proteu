@@ -17,6 +17,7 @@ model User{
   email String? @db.VarChar(255)
   login String @db.VarChar(255)
   password String @db.VarChar(255)
+  active Int @default(1)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 

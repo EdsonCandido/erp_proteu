@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import { prismaClient } from "../databases/PrismaClients";
 
-export class IndexUserService{
+export class IndexUserService {
     private conn: PrismaClient;
 
-    constructor(){
+    constructor() {
         this.conn = prismaClient;
     }
     public async handler() {
@@ -13,6 +13,7 @@ export class IndexUserService{
                 id: true,
                 email: true,
                 login: true,
+                active: true,
                 createdAt: true
             }
         });
